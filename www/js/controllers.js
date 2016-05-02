@@ -1,10 +1,14 @@
 angular.module('starter.controllers', [])
 
-.controller('PasswordCtrl', function($scope) {
+.controller('PasswordCtrl', function($scope, algorithms) {
 
-  $scope.siteInput = 'me';
-  $scope.magicInput = 'you';
-  $scope.passReturn = $scope.siteInput +''+ $scope.magicInput;
+  $scope.test = {};
+  $scope.test.siteInput = '';
+  $scope.test.magicInput = '';
+  $scope.passReturn = function() {
+    return algorithms.changer(algorithms.mixup($scope.test.siteInput +''+ $scope.test.magicInput));
+  };
+
 
 })
 

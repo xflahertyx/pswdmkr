@@ -2,14 +2,14 @@
   <ion-content class="padding">
     <h2>Password Maker</h2>
     <label class="item item-input">
-      <span class="input-label">Magic Word</span>
-      <input type="text" data-ng-model="magicInput">
+      <span class="input-label">Magic Word:</span>
+      <input type="text" data-ng-model="test.magicInput">
     </label>
     <label class="item item-input">
-      <span class="input-label">Site/system name</span>
-      <input type="text" data-ng-model="siteInput">
+      <span class="input-label">Site/system name:</span>
+      <input type="text" data-ng-model="test.siteInput">
     </label>
-   <h3>{{passReturn}}</h3>
+    <h3>Pass: {{passReturn()}}</h3>
     <section class="flex-main">
       <div class="flex-row">
         <div class="box">

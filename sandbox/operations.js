@@ -72,7 +72,7 @@ function mixup(str) {
   return newString;
 };
 
-function changer(str) {2
+function changer(str) {
   var newCharList = mixup(characters);
   var newstring = ""
   for (var i = 0; i < str.length; i++) {
