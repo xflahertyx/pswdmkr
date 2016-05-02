@@ -79,10 +79,18 @@ angular.module('starter.services', [])
       //var newCharList = mixup(characters);
       var newstring = ""
       for (var i = 0; i < str.length; i++) {
-        newstring += characters[(primes[i] * morePrimes[i] * characters.indexOf(str[i])) % characters.length] ;
+        var charIdx = characters.indexOf(str[i]);
+        if (charIdx !== -1) {
+          newstring += characters[(primes[i] * morePrimes[i] * charIdx) % characters.length] ;
+        }
       }
       return newstring;
     }
+
+    // valChar: function(char) {
+    //   if (characters.indexOf(char) === -1) return false;
+    //   else return true;
+    // }
 
   };
 })
