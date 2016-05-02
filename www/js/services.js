@@ -87,11 +87,6 @@ angular.module('starter.services', [])
       return newstring;
     }
 
-    // valChar: function(char) {
-    //   if (characters.indexOf(char) === -1) return false;
-    //   else return true;
-    // }
-
   };
 })
 
