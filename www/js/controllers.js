@@ -1,6 +1,12 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('PasswordCtrl', function($scope) {
+
+  $scope.siteInput = 'me';
+  $scope.magicInput = 'you';
+  $scope.passReturn = $scope.siteInput +''+ $scope.magicInput;
+
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
@@ -26,3 +32,4 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 });
+
