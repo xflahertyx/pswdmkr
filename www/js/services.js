@@ -62,7 +62,18 @@ angular.module('starter.services', [])
 
   return {
 
+    extend: function(str, newLen) {
+      if(str === '') return str;
+      if(!newLen) newLen = 16;
+      var newString = '';
+      for(i = 0; i < newLen; i++) {
+        newString += str[i % str.length];
+      }
+      return newString;
+    },
+
     mixup: function(str) {
+      console.log(str);
       var newString = '';
       var i = str.length;
         while (i > 0) {
@@ -79,7 +90,10 @@ angular.module('starter.services', [])
       //var newCharList = mixup(characters);
       var newstring = ""
       for (var i = 0; i < str.length; i++) {
-        newstring += characters[(primes[i] * morePrimes[i] * characters.indexOf(str[i])) % characters.length] ;
+        var charIdx = characters.indexOf(str[i]);
+        if (charIdx !== -1) {
+          newstring += characters[(primes[i] * morePrimes[i] * charIdx) % characters.length] ;
+        }
       }
       return newstring;
     }

@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
   $scope.test.siteInput = '';
   $scope.test.magicInput = '';
   $scope.passReturn = function() {
-    return algorithms.changer(algorithms.mixup($scope.test.siteInput +''+ $scope.test.magicInput));
+    return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));
   };
 
 
@@ -36,4 +36,3 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 });
-
