@@ -2,7 +2,6 @@ angular.module('starter.controllers', [])
 
 .controller('PasswordCtrl', function($scope, algorithms, Store) {
 
-  $scope.block = 'animals';
   $scope.animals = {
     Dog: {name: 'Dog', prim: 'prime12'},
     cat: {name: 'Cat', prim: 'prime13'},
