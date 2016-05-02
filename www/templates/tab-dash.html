@@ -1,5 +1,5 @@
 <ion-view view-title="Password Maker">
-  <ion-content class="padding">
+  <ion-content class="padding" >
     <h2>Password Maker</h2>
     <label class="item item-input">
       <span class="input-label">Magic Word:</span>
@@ -10,40 +10,40 @@
       <input type="text" data-ng-model="test.siteInput">
     </label>
     <h3>Pass: {{passReturn()}}</h3>
-    <section class="flex-main">
+    <section class="flex-main" ng-if="block=animals">
       <div class="flex-row">
-        <div class="box">
-          <p>1</p>
-        </div>
-        <div class="box">
-          <p>2</p>
-        </div>
-        <div class="box">
-          <p>3</p>
-        </div>
+        <div class="box" ng-click="dog()">Dog</div>
+        <div class="box" ng-click="cat()">Cat</div>
+        <div class="box" ng-click="rabbit()">Rabbit</div>
       </div>
       <div class="flex-row">
-        <div class="box">
-          <p>4</p>
-        </div>
-        <div class="box">
-          <p>5</p>
-        </div>
-        <div class="box">
-          <p>6</p>
-        </div>
+        <div class="box" ng-click="dragon()">Dragon</div>
+        <div class="box" ng-click="llama()">Llama</div>
+        <div class="box" ng-click="unicorn()">Unicorn</div>
       </div>
       <div class="flex-row">
-        <div class="box">
-          <p>7</p>
-        </div>
-        <div class="box">
-          <p>8</p>
-        </div>
-        <div class="box">
-          <p>9</p>
-        </div>
+        <div class="box" ng-click="eagle()">Eagle</div>
+        <div class="box" ng-click="Dolphin()">Dolphin</div>
+        <div class="box" ng-click="Penguin()">Penguin</div>
       </div>
     </section>
+    <section class="flex-main" ng-if="block=verbs">
+      <div class="flex-row">
+        <div class="box" ng-click="eats()">eats</div>
+        <div class="box" ng-click="breathes()">breathes</div>
+        <div class="box" ng-click="drinks()">drinks</div>
+      </div>
+      <div class="flex-row">
+        <div class="box" ng-click="dreams()">dreams</div>
+        <div class="box" ng-click="farts()">farts</div>
+        <div class="box" ng-click="smells()">smells</div>
+      </div>
+      <div class="flex-row">
+        <div class="box" ng-click="snubs()">snubs</div>
+        <div class="box" ng-click="snorts()">snorts</div>
+        <div class="box" ng-click="summons()">summons</div>
+      </div>
+    </section>
+
   </ion-content>
 </ion-view>

@@ -1,14 +1,36 @@
 angular.module('starter.controllers', [])
 
-.controller('PasswordCtrl', function($scope, algorithms) {
+.controller('PasswordCtrl', function($scope, algorithms, Store) {
+
+  $scope.block = 'animals';
+  $scope.animals = {
+    Dog: {name: 'Dog', prim: 'prime12'},
+    cat: {name: 'Cat', prim: 'prime13'},
+    rabbit: {name: 'Rabbit', prim: 'prime14'},
+    dragon: {name: 'Dragon', prim: 'prime15'},
+    llama: {name: 'Llama', prim: 'prime16'},
+    unicorn: {name: 'unicorn', prim: 'prime17'},
+    eagle: {name: 'eagle', prim: 'prime18'},
+    dolphin: {name: 'dolphin', prim: 'prime19'},
+    penguin: {name: 'penguin', prim: 'prime20'}
+  }
 
   $scope.test = {};
   $scope.test.siteInput = '';
   $scope.test.magicInput = '';
+  $scope.block = '';
   $scope.passReturn = function() {
-    return algorithms.changer(algorithms.mixup($scope.test.siteInput +''+ $scope.test.magicInput));
+    Store.set($scope.test.siteInput +''+ $scope.test.magicInput)
+    return Store.get();
   };
-
+  $scope.dog = function() {
+    var input = Store.get();
+    var mix = algorithms.mixup(input, 'prime12');
+    Store.set(algorithms.changer(mix, 'prime12'));
+    console.log(Store.get());
+    $scope.block = 'verbs';
+    return Store.get();
+  }
 
 })
 
