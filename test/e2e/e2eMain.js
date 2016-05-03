@@ -1,7 +1,7 @@
 describe('the very first test', function() {
   var magicInput = element(by.model('test.magicInput'));
   var siteInput = element(by.model('test.siteInput'));
-  var returnPass = element(by.binding('passReturn()'));
+  var returnPass = element(by.binding('returnPass'));
 
 
   beforeEach(function() {
@@ -13,6 +13,10 @@ describe('the very first test', function() {
     magicInput.sendKeys('abcd');
     siteInput.clear();
     siteInput.sendKeys('efgh.com');
-    expect(returnPass.length).toEqual(16);
+    expect(magicInput.getAttribute('value')).toEqual('abcd');
+    expect(siteInput.getAttribute('value')).toEqual('efgh.com');
+    
+    // console.log(returnPass.getText());
+    // expect(returnPass.length).toEqual(16);
   })
 })
