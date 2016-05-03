@@ -46,13 +46,10 @@ angular.module('starter.controllers', [])
   $scope.test.siteInput = '';
   $scope.test.magicInput = '';
   $scope.block = '';
-  $scope.passReturn = function() {
-    var inputs = $scope.test.siteInput +''+ $scope.test.magicInput
-    Store.set('inputs', inputs)
-    return inputs;
-  };
 
   $scope.animals = function(ani) {
+    var inputs = $scope.test.siteInput +''+ $scope.test.magicInput
+    Store.set('inputs', inputs)
     var input = Store.get('inputs');
     var filtered = algorithms.checkChars(input);
     var extended = algorithms.extend(filtered);
@@ -79,16 +76,13 @@ angular.module('starter.controllers', [])
     var change1 = algorithms.changer(input, list[noun][0]);
     Store.set('noun', change1)
     console.log('nouns out: ' + Store.get('noun'));
-    console.log('colors out: ' + Store.get('color'))
-    console.log('verbs out: ' + Store.get('verb'))
-    console.log('animals out: ' + Store.get('animal'));
   }
   $scope.displayPass = function() {
-    // if(algorithms.validate(Store.get('noun'))) {
-    //   console.log('Good');
-    // } else {
-    //   console.log('');
-    // }
+    if(algorithms.validate(Store.get('noun'))) {
+      console.log('Good');
+    } else {
+      console.log('Bad');
+    }
     return $scope.returnPass = Store.get('noun');
     /*$scope.returnPass = Store.get('');
     return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));*/
