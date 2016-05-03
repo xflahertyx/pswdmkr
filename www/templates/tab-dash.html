@@ -12,70 +12,70 @@
     <h3>Pass: {{passReturn()}}</h3>
     <section class="flex-main" ng-show="block == 'animals'" ng-click="block = 'verbs'">
       <div class="flex-row">
-        <div class="box" ng-click="dog()">Dog</div>
-        <div class="box" ng-click="cat()">Cat</div>
-        <div class="box" ng-click="rabbit()">Rabbit</div>
+        <div class="box" ng-click="animals('dog')">Dog</div>
+        <div class="box" ng-click="animals('cat')">Cat</div>
+        <div class="box" ng-click="animals('rabbit')">Rabbit</div>
       </div>
       <div class="flex-row">
-        <div class="box" ng-click="dragon()">Dragon</div>
-        <div class="box" ng-click="llama()">Llama</div>
-        <div class="box" ng-click="unicorn()">Unicorn</div>
+        <div class="box" ng-click="animals('dragon')">Dragon</div>
+        <div class="box" ng-click="animals('llama')">Llama</div>
+        <div class="box" ng-click="animals('unicorn')">Unicorn</div>
       </div>
       <div class="flex-row">
-        <div class="box" ng-click="eagle()">Eagle</div>
-        <div class="box" ng-click="Dolphin()">Dolphin</div>
-        <div class="box" ng-click="Penguin()">Penguin</div>
+        <div class="box" ng-click="animals('eagle')">Eagle</div>
+        <div class="box" ng-click="animals('dolphin')">Dolphin</div>
+        <div class="box" ng-click="animals('penguin')">Penguin</div>
       </div>
     </section>
     <section class="flex-main" ng-show="block == 'verbs'" ng-click="block = 'colors'">
       <div class="flex-row">
-        <div class="box" ng-click="eats()">eats</div>
-        <div class="box" ng-click="breathes()">breathes</div>
-        <div class="box" ng-click="drinks()">drinks</div>
+        <div class="box" ng-click="verbs('eats')">eats</div>
+        <div class="box" ng-click="verbs('breathes')">breathes</div>
+        <div class="box" ng-click="verbs('drinks')">drinks</div>
       </div>
       <div class="flex-row">
-        <div class="box" ng-click="dreams()">dreams</div>
-        <div class="box" ng-click="farts()">farts</div>
-        <div class="box" ng-click="smells()">smells</div>
+        <div class="box" ng-click="verbs('dreams')">dreams</div>
+        <div class="box" ng-click="verbs('farts')">farts</div>
+        <div class="box" ng-click="verbs('smells')">smells</div>
       </div>
       <div class="flex-row">
-        <div class="box" ng-click="snubs()">snubs</div>
-        <div class="box" ng-click="snorts()">snorts</div>
-        <div class="box" ng-click="summons()">summons</div>
+        <div class="box" ng-click="verbs('snubs')">snubs</div>
+        <div class="box" ng-click="verbs('snorts')">snorts</div>
+        <div class="box" ng-click="verbs('summons')">summons</div>
       </div>
     </section>
     <section class="flex-main" ng-show="block == 'colors'" ng-click="block = 'nouns'">
       <div class="flex-row">
-        <div class="box" ng-click="red()">Red</div>
-        <div class="box" ng-click="blue()">Blue</div>
-        <div class="box" ng-click="green()">Green</div>
+        <div class="box" ng-click="colors('red')">Red</div>
+        <div class="box" ng-click="colors('blue')">Blue</div>
+        <div class="box" ng-click="colors('green')">Green</div>
       </div>
       <div class="flex-row">
-        <div class="box" ng-click="yellow()">Yellow</div>
-        <div class="box" ng-click="orange()">Orange</div>
-        <div class="box" ng-click="purple()">Purple</div>
+        <div class="box" ng-click="colors('yellow')">Yellow</div>
+        <div class="box" ng-click="colors('orange')">Orange</div>
+        <div class="box" ng-click="colors('purple')">Purple</div>
       </div>
       <div class="flex-row">
-        <div class="box" ng-click="white()">White</div>
-        <div class="box" ng-click="black()">Black</div>
-        <div class="box" ng-click="rainbow()">Rainbow</div>
+        <div class="box" ng-click="colors('white')">White</div>
+        <div class="box" ng-click="colors('black')">Black</div>
+        <div class="box" ng-click="colors('rainbow')">Rainbow</div>
       </div>
     </section>
     <section class="flex-main" ng-show="block == 'nouns'" ng-click="block = 'pass'; displayPass()">
       <div class="flex-row">
-        <div class="box" ng-click="cheeseburgers()">Cheeseburgers</div>
-        <div class="box" ng-click="fire()">Fire</div>
-        <div class="box" ng-click="poops()">Poops</div>
+        <div class="box" ng-click="nouns('cheese')">Cheeseburgers</div>
+        <div class="box" ng-click="nouns('fire')">Fire</div>
+        <div class="box" ng-click="nouns('poops')">Poops</div>
       </div>
       <div class="flex-row">
-        <div class="box" ng-click="cars()">Cars</div>
-        <div class="box" ng-click="donuts()">Donuts</div>
-        <div class="box" ng-click="phones()">Phones</div>
+        <div class="box" ng-click="nouns('cars')">Cars</div>
+        <div class="box" ng-click="nouns('donuts')">Donuts</div>
+        <div class="box" ng-click="nouns('phones')">Phones</div>
       </div>
       <div class="flex-row">
-        <div class="box" ng-click="sushi()">Sushi</div>
-        <div class="box" ng-click="baseballs()">Baseballs</div>
-        <div class="box" ng-click="bicycles()">Bicycles</div>
+        <div class="box" ng-click="nouns('sushi')">Sushi</div>
+        <div class="box" ng-click="nouns('baseballs')">Baseballs</div>
+        <div class="box" ng-click="nouns('bicycles')">Bicycles</div>
       </div>
     </section>
     <section ng-show="block == 'pass'">
