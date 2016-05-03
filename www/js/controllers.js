@@ -57,27 +57,29 @@ angular.module('starter.controllers', [])
     var mix = algorithms.mixup(input, list[ani]);
     Store.set('animal', algorithms.changer(mix, list[ani]));
     $scope.block = 'verbs';
-    console.log('animals output: ' + Store.get('animal'));
-    return Store.get('animal');
+    console.log('animals out: ' + Store.get('animal'));
   };
   $scope.verbs = function(ver) {
     var input = Store.get('animal');
-    console.log('verbs start: ' + input);
-    console.log('brack: ' + list[ver][0]);
-    var change1 = algorithms.changer(input, list[ver][0]);
+    var change1 = algorithms.changer2(input, list[ver][0]);
+    console.log('verb chg: ' + change1);
     Store.set('verb', change1)
+    console.log('verbs out: ' + Store.get('verb'))
   };
   $scope.colors = function(col) {
     var input = Store.get('verb');
-    console.log('color start: ' + input);
     var change1 = algorithms.changer(input, list[col][0]);
-    Store.set('color', change1)
+    Store.set('color', change1);
+    console.log('colors out: ' + Store.get('color'))
   };
   $scope.nouns = function(noun) {
     var input = Store.get('color');
-    console.log('nouns start: ' + input);
     var change1 = algorithms.changer(input, list[noun][0]);
     Store.set('noun', change1)
+    console.log('nouns out: ' + Store.get('noun'));
+    console.log('colors out: ' + Store.get('color'))
+    console.log('verbs out: ' + Store.get('verb'))
+    console.log('animals out: ' + Store.get('animal'));
   }
   $scope.displayPass = function() {
     return $scope.returnPass = Store.get('noun');

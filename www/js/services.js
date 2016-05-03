@@ -78,7 +78,7 @@ angular.module('starter.services', [])
         newstring += characters[(primesList[prim][i] * primesList[prim][i] * characters.indexOf(str[i])) % characters.length] ;
         var charIdx = characters.indexOf(str[i]);
         if (charIdx !== -1) {
-          newstring += characters[(primesList[prim][i] * primesList[prim][i + 1] * charIdx) % characters.length] ;
+          newstring += characters[(primesList[prim][i] * primesList[prim][i+1] * charIdx) % characters.length] ;
         }
       }
       return newstring;
