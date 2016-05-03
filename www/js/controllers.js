@@ -54,15 +54,17 @@ angular.module('starter.controllers', [])
 
   $scope.animals = function(ani) {
     var input = Store.get('inputs');
-    var mix = algorithms.mixup(input, list[ani]);
+    var filtered = algorithms.checkChars(input);
+    var extended = algorithms.extend(filtered);
+    var mix = algorithms.mixup(extended, list[ani]);
     Store.set('animal', algorithms.changer(mix, list[ani]));
     $scope.block = 'verbs';
     console.log('animals out: ' + Store.get('animal'));
   };
   $scope.verbs = function(ver) {
     var input = Store.get('animal');
-    var change1 = algorithms.changer2(input, list[ver][0]);
-    console.log('verb chg: ' + change1);
+    console.log('verbs start: ' + input);
+    var change1 = algorithms.changer(input, list[ver][0]);
     Store.set('verb', change1)
     console.log('verbs out: ' + Store.get('verb'))
   };
@@ -82,6 +84,11 @@ angular.module('starter.controllers', [])
     console.log('animals out: ' + Store.get('animal'));
   }
   $scope.displayPass = function() {
+    // if(algorithms.validate(Store.get('noun'))) {
+    //   console.log('Good');
+    // } else {
+    //   console.log('');
+    // }
     return $scope.returnPass = Store.get('noun');
     /*$scope.returnPass = Store.get('');
     return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));*/
