@@ -19,13 +19,13 @@ angular.module('starter.controllers', [])
   $scope.test.magicInput = '';
   $scope.block = '';
   $scope.passReturn = function() {
-    Store.set($scope.test.siteInput +''+ $scope.test.magicInput)
+    Store.set('inputs', $scope.test.siteInput +''+ $scope.test.magicInput)
     return Store.get();
   };
   $scope.dog = function() {
-    var input = Store.get();
+    var input = Store.get('inputs');
     var mix = algorithms.mixup(input, 'prime12');
-    Store.set(animals, algorithms.changer(mix, 'prime12'));
+    Store.set('animal', algorithms.changer(mix, 'prime12'));
     $scope.block = 'verbs';
     return Store.get();
     console.log(Store.get());

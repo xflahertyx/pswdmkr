@@ -2,6 +2,7 @@ angular.module('starter.services', [])
 
 .factory('Store', function() {
   var store = {
+    inputs: null,
     animal: null,
     verb: null,
     color: null,
