@@ -1,5 +1,5 @@
 <ion-view view-title="Password Maker">
-  <ion-content class="padding">
+  <ion-content class="padding" ng-init="block = 'animals'">
     <h2>Password Maker</h2>
     <label class="item item-input">
       <span class="input-label">Magic Word:</span>
@@ -10,40 +10,78 @@
       <input type="text" data-ng-model="test.siteInput">
     </label>
     <h3>Pass: {{passReturn()}}</h3>
-    <section class="flex-main">
+    <section class="flex-main" ng-show="block == 'animals'" ng-click="block = 'verbs'">
       <div class="flex-row">
-        <div class="box">
-          <p>1</p>
-        </div>
-        <div class="box">
-          <p>2</p>
-        </div>
-        <div class="box">
-          <p>3</p>
-        </div>
+        <div class="box" ng-click="animals('dog')">Dog</div>
+        <div class="box" ng-click="animals('cat')">Cat</div>
+        <div class="box" ng-click="animals('rabbit')">Rabbit</div>
       </div>
       <div class="flex-row">
-        <div class="box">
-          <p>4</p>
-        </div>
-        <div class="box">
-          <p>5</p>
-        </div>
-        <div class="box">
-          <p>6</p>
-        </div>
+        <div class="box" ng-click="animals('dragon')">Dragon</div>
+        <div class="box" ng-click="animals('llama')">Llama</div>
+        <div class="box" ng-click="animals('unicorn')">Unicorn</div>
       </div>
       <div class="flex-row">
-        <div class="box">
-          <p>7</p>
-        </div>
-        <div class="box">
-          <p>8</p>
-        </div>
-        <div class="box">
-          <p>9</p>
-        </div>
+        <div class="box" ng-click="animals('eagle')">Eagle</div>
+        <div class="box" ng-click="animals('dolphin')">Dolphin</div>
+        <div class="box" ng-click="animals('penguin')">Penguin</div>
       </div>
     </section>
+    <section class="flex-main" ng-show="block == 'verbs'" ng-click="block = 'colors'">
+      <div class="flex-row">
+        <div class="box" ng-click="verbs('eats')">eats</div>
+        <div class="box" ng-click="verbs('breathes')">breathes</div>
+        <div class="box" ng-click="verbs('drinks')">drinks</div>
+      </div>
+      <div class="flex-row">
+        <div class="box" ng-click="verbs('dreams')">dreams</div>
+        <div class="box" ng-click="verbs('farts')">farts</div>
+        <div class="box" ng-click="verbs('smells')">smells</div>
+      </div>
+      <div class="flex-row">
+        <div class="box" ng-click="verbs('snubs')">snubs</div>
+        <div class="box" ng-click="verbs('snorts')">snorts</div>
+        <div class="box" ng-click="verbs('summons')">summons</div>
+      </div>
+    </section>
+    <section class="flex-main" ng-show="block == 'colors'" ng-click="block = 'nouns'">
+      <div class="flex-row">
+        <div class="box" ng-click="colors('red')">Red</div>
+        <div class="box" ng-click="colors('blue')">Blue</div>
+        <div class="box" ng-click="colors('green')">Green</div>
+      </div>
+      <div class="flex-row">
+        <div class="box" ng-click="colors('yellow')">Yellow</div>
+        <div class="box" ng-click="colors('orange')">Orange</div>
+        <div class="box" ng-click="colors('purple')">Purple</div>
+      </div>
+      <div class="flex-row">
+        <div class="box" ng-click="colors('white')">White</div>
+        <div class="box" ng-click="colors('black')">Black</div>
+        <div class="box" ng-click="colors('rainbow')">Rainbow</div>
+      </div>
+    </section>
+    <section class="flex-main" ng-show="block == 'nouns'" ng-click="block = 'pass'; displayPass()">
+      <div class="flex-row">
+        <div class="box" ng-click="nouns('cheese')">Cheeseburgers</div>
+        <div class="box" ng-click="nouns('fire')">Fire</div>
+        <div class="box" ng-click="nouns('poops')">Poops</div>
+      </div>
+      <div class="flex-row">
+        <div class="box" ng-click="nouns('cars')">Cars</div>
+        <div class="box" ng-click="nouns('donuts')">Donuts</div>
+        <div class="box" ng-click="nouns('phones')">Phones</div>
+      </div>
+      <div class="flex-row">
+        <div class="box" ng-click="nouns('sushi')">Sushi</div>
+        <div class="box" ng-click="nouns('baseballs')">Baseballs</div>
+        <div class="box" ng-click="nouns('bicycles')">Bicycles</div>
+      </div>
+    </section>
+    <section ng-show="block == 'pass'">
+      <h3>Password: {{returnPass}}</h3>
+      <button class="button button-positive">Copy to Clipboard</button>
+    </section>
+
   </ion-content>
 </ion-view>
