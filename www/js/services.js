@@ -83,14 +83,31 @@ angular.module('starter.services', [])
       return filteredString;
     },
 
-
+    validate: function(str) {
+      const special = '`-=,!;@#$%^&*()_+{}|:"<>?';
+      const numbers = '1234567890';
+      const lowerCase = 'qwertyuiopasdfghjklzxcvbnm';
+      const upperCase = 'QWERTYUIOPASDFGHJKLZXCVBNM';
+      var result = {};
+      result.hasSpecial = false;
+      result.hasNumbers = false;
+      result.hasLower = false;
+      result.hasUpper = false;
+      for(var i = 0; i < str.length; i++) {
+        if(special.indexOf(str[i]) > -1) result.hasSpecial = true;
+        if(numbers.indexOf(str[i]) > -1) result.hasNumbers = true;
+        if(lowerCase.indexOf(str[i]) > -1) result.hasLower = true;
+        if(upperCase.indexOf(str[i]) > -1) result.hasUpper = true;
+      }
+      result.passes = result.hasSpecial && result.hasNumbers && result.hasLower && result.hasUpper;
+      return result;
+    },
 
     changer: function(str, prim) {
       var newstring = ""
       for (var i = 0; i < str.length; i++) {
           newstring += characters[(primesList[prim][i] * primesList[prim][i] * characters.indexOf(str[i])) % characters.length] ;
       }
-      console.log('newstring: ' + newstring);
       return newstring;
     }
 
