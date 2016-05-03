@@ -6,6 +6,10 @@ angular.module('starter.controllers', [])
   $scope.test.siteInput = '';
   $scope.test.magicInput = '';
   $scope.passReturn = function() {
+    console.log(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));
+    console.log(algorithms.validate(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput))));
+    console.log(algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput))));
+    console.log(algorithms.validate(algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)))));
     return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));
   };
 
