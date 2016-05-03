@@ -72,15 +72,25 @@ angular.module('starter.services', [])
       return newString;
     },
 
+    checkChars: function(str) {
+      filteredString = '';
+      for (var i = 0; i < str.length; i++) {
+        var charIdx = characters.indexOf(str[i]);
+        if (charIdx !== -1) {
+          filteredString += str[i];
+        }
+      }
+      return filteredString;
+    },
+
+
+
     changer: function(str, prim) {
       var newstring = ""
       for (var i = 0; i < str.length; i++) {
-        newstring += characters[(primesList[prim][i] * primesList[prim][i] * characters.indexOf(str[i])) % characters.length] ;
-        var charIdx = characters.indexOf(str[i]);
-        if (charIdx !== -1) {
-          newstring += characters[(primesList[prim][i] * primesList[prim][i + 1] * charIdx) % characters.length] ;
-        }
+          newstring += characters[(primesList[prim][i] * primesList[prim][i] * characters.indexOf(str[i])) % characters.length] ;
       }
+      console.log('newstring: ' + newstring);
       return newstring;
     }
 
