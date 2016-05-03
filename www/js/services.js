@@ -9,6 +9,10 @@ angular.module('starter.services', [])
     },
     get: function (key){
       return store[key];
+    },
+    clear: function(){
+      store = {};
+      return store;
     }
   }
 })

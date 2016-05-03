@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('PasswordCtrl', function($scope, algorithms, Store) {
+.controller('PasswordCtrl', function($scope, algorithms, Store, $cordovaClipboard) {
 
   var list = {
     dog: 'prime12',
@@ -87,17 +87,24 @@ angular.module('starter.controllers', [])
     /*$scope.returnPass = Store.get('');
     return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));*/
   };
-
+  $scope.copyPass = function() {
+    var value = Store.get('noun');
+    $cordovaClipboard
+      .copy(value).then(function() {
+        console.log("Copied text");
+      }, function () {
+        console.error("There was an error copying");
+      });
+  };
+  $scope.clearAll = function() {
+    $scope.test = {};
+    $scope.test.siteInput = '';
+    $scope.test.magicInput = '';
+    Store.clear();
+  }
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
 
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {

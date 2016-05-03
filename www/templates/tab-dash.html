@@ -1,85 +1,92 @@
 <ion-view view-title="Password Maker">
   <ion-content class="padding" ng-init="block = 'animals'">
-    <h2>Password Maker</h2>
-    <label class="item item-input">
-      <span class="input-label">Magic Word:</span>
-      <input type="text" data-ng-model="test.magicInput">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Site/system name:</span>
-      <input type="text" data-ng-model="test.siteInput">
-    </label>
-    <section class="flex-main" ng-show="block == 'animals'" ng-click="block = 'verbs'">
-      <div class="flex-row">
-        <div class="box" ng-click="animals('dog')">Dog</div>
-        <div class="box" ng-click="animals('cat')">Cat</div>
-        <div class="box" ng-click="animals('rabbit')">Rabbit</div>
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Magic Word:</span>
+        <input type="text" data-ng-model="test.magicInput">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Site/system name:</span>
+        <input type="text" data-ng-model="test.siteInput">
+      </label>
+    </div>
+    <section class="list" ng-show="block == 'animals'" ng-click="block = 'verbs'">
+      <div class="button-bar item">
+        <a class="button" ng-click="animals('dog')">Dog</a>
+        <a class="button" ng-click="animals('cat')">Cat</a>
+        <a class="button" ng-click="animals('rabbit')">Rabbit</a>
       </div>
-      <div class="flex-row">
-        <div class="box" ng-click="animals('dragon')">Dragon</div>
-        <div class="box" ng-click="animals('llama')">Llama</div>
-        <div class="box" ng-click="animals('unicorn')">Unicorn</div>
+      <div class="button-bar item">
+        <a class="button" ng-click="animals('dragon')">Dragon</a>
+        <a class="button" ng-click="animals('llama')">Llama</a>
+        <a class="button" ng-click="animals('unicorn')">Unicorn</a>
       </div>
-      <div class="flex-row">
-        <div class="box" ng-click="animals('eagle')">Eagle</div>
-        <div class="box" ng-click="animals('dolphin')">Dolphin</div>
-        <div class="box" ng-click="animals('penguin')">Penguin</div>
-      </div>
-    </section>
-    <section class="flex-main" ng-show="block == 'verbs'" ng-click="block = 'colors'">
-      <div class="flex-row">
-        <div class="box" ng-click="verbs('eats')">eats</div>
-        <div class="box" ng-click="verbs('breathes')">breathes</div>
-        <div class="box" ng-click="verbs('drinks')">drinks</div>
-      </div>
-      <div class="flex-row">
-        <div class="box" ng-click="verbs('dreams')">dreams</div>
-        <div class="box" ng-click="verbs('farts')">farts</div>
-        <div class="box" ng-click="verbs('smells')">smells</div>
-      </div>
-      <div class="flex-row">
-        <div class="box" ng-click="verbs('snubs')">snubs</div>
-        <div class="box" ng-click="verbs('snorts')">snorts</div>
-        <div class="box" ng-click="verbs('summons')">summons</div>
+      <div class="button-bar item">
+        <a class="button" ng-click="animals('eagle')">Eagle</a>
+        <a class="button" ng-click="animals('dolphin')">Dolphin</a>
+        <a class="button" ng-click="animals('penguin')">Penguin</a>
       </div>
     </section>
-    <section class="flex-main" ng-show="block == 'colors'" ng-click="block = 'nouns'">
-      <div class="flex-row">
-        <div class="box" ng-click="colors('red')">Red</div>
-        <div class="box" ng-click="colors('blue')">Blue</div>
-        <div class="box" ng-click="colors('green')">Green</div>
+    <section class="list" ng-show="block == 'verbs'" ng-click="block = 'colors'">
+      <div class="button-bar item">
+        <a class="button" ng-click="verbs('eats')">eats</a>
+        <a class="button" ng-click="verbs('breathes')">breathes</a>
+        <a class="button" ng-click="verbs('drinks')">drinks</a>
       </div>
-      <div class="flex-row">
-        <div class="box" ng-click="colors('yellow')">Yellow</div>
-        <div class="box" ng-click="colors('orange')">Orange</div>
-        <div class="box" ng-click="colors('purple')">Purple</div>
+      <div class="button-bar item">
+        <a class="button" ng-click="verbs('dreams')">dreams</a>
+        <a class="button" ng-click="verbs('farts')">farts</a>
+        <a class="button" ng-click="verbs('smells')">smells</a>
       </div>
-      <div class="flex-row">
-        <div class="box" ng-click="colors('white')">White</div>
-        <div class="box" ng-click="colors('black')">Black</div>
-        <div class="box" ng-click="colors('rainbow')">Rainbow</div>
-      </div>
-    </section>
-    <section class="flex-main" ng-show="block == 'nouns'" ng-click="block = 'pass'; displayPass()">
-      <div class="flex-row">
-        <div class="box" ng-click="nouns('cheese')">Cheeseburgers</div>
-        <div class="box" ng-click="nouns('fire')">Fire</div>
-        <div class="box" ng-click="nouns('poops')">Poops</div>
-      </div>
-      <div class="flex-row">
-        <div class="box" ng-click="nouns('cars')">Cars</div>
-        <div class="box" ng-click="nouns('donuts')">Donuts</div>
-        <div class="box" ng-click="nouns('phones')">Phones</div>
-      </div>
-      <div class="flex-row">
-        <div class="box" ng-click="nouns('sushi')">Sushi</div>
-        <div class="box" ng-click="nouns('baseballs')">Baseballs</div>
-        <div class="box" ng-click="nouns('bicycles')">Bicycles</div>
+      <div class="button-bar item">
+        <a class="button" ng-click="verbs('snubs')">snubs</a>
+        <a class="button" ng-click="verbs('snorts')">snorts</a>
+        <a class="button" ng-click="verbs('summons')">summons</a>
       </div>
     </section>
-    <section ng-show="block == 'pass'">
-      <h3>Password: {{returnPass}}</h3>
-      <button class="button button-positive">Copy to Clipboard</button>
+    <section class="list" ng-show="block == 'colors'" ng-click="block = 'nouns'">
+      <div class="button-bar item">
+        <a class="button" ng-click="colors('red')">Red</a>
+        <a class="button" ng-click="colors('blue')">Blue</a>
+        <a class="button" ng-click="colors('green')">Green</a>
+      </div>
+      <div class="button-bar item">
+        <a class="button" ng-click="colors('yellow')">Yellow</a>
+        <a class="button" ng-click="colors('orange')">Orange</a>
+        <a class="button" ng-click="colors('purple')">Purple</a>
+      </div>
+      <div class="button-bar item">
+        <a class="button" ng-click="colors('white')">White</a>
+        <a class="button" ng-click="colors('black')">Black</a>
+        <a class="button" ng-click="colors('rainbow')">Rainbow</a>
+      </div>
+    </section>
+    <section ng-show="block == 'nouns'" ng-click="block = 'pass'; displayPass()">
+      <div class="button-bar item">
+        <a class="button" ng-click="nouns('cheese')">Cheeseburgers</a>
+        <a class="button" ng-click="nouns('fire')">Fire</a>
+        <a class="button" ng-click="nouns('poops')">Poops</a>
+      </div>
+      <div class="button-bar item">
+        <a class="button" ng-click="nouns('cars')">Cars</a>
+        <a class="button" ng-click="nouns('donuts')">Donuts</a>
+        <a class="button" ng-click="nouns('phones')">Phones</a>
+      </div>
+      <div class="button-bar item">
+        <a class="button" ng-click="nouns('sushi')">Sushi</a>
+        <a class="button" ng-click="nouns('baseballs')">Baseballs</a>
+        <a class="button" ng-click="nouns('bicycles')">Bicycles</a>
+      </div>
+    </section>
+    <section class="list" ng-show="block == 'pass'">
+      <div class="list">
+        <h4>Password:</h4>
+        <h3>{{returnPass}}</h3>
+      </div>
+      <div class="list">
+        <button class="button button-positive" on-touch="copyPass()">Copy to Clipboard</button>
+        <button class="button button-positive" ng-click="clearAll(); block = 'animals'">Clear</button>
+      </div>
     </section>
 
   </ion-content>
