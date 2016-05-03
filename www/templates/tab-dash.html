@@ -61,7 +61,7 @@
         <div class="box" ng-click="rainbow()">Rainbow</div>
       </div>
     </section>
-    <section class="flex-main" ng-show="block == 'nouns'">
+    <section class="flex-main" ng-show="block == 'nouns'" ng-click="block = 'pass'; displayPass()">
       <div class="flex-row">
         <div class="box" ng-click="cheeseburgers()">Cheeseburgers</div>
         <div class="box" ng-click="fire()">Fire</div>
@@ -77,6 +77,10 @@
         <div class="box" ng-click="baseballs()">Baseballs</div>
         <div class="box" ng-click="bicycles()">Bicycles</div>
       </div>
+    </section>
+    <section ng-show="block == 'pass'">
+      <h3>Password: {{returnPass}}</h3>
+      <button class="button button-positive">Copy to Clipboard</button>
     </section>
 
   </ion-content>

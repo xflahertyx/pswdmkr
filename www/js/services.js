@@ -1,14 +1,19 @@
 angular.module('starter.services', [])
 
 .factory('Store', function() {
-  var store = {};
+  var store = {
+    animal: null,
+    verb: null,
+    color: null,
+    noun: null
+  };
   return {
-    set: function (value){
-      store = value;
+    set: function (key, value){
+      store[key] = value;
       return store;
     },
-    get: function (){
-      return store;
+    get: function (key){
+      return store[key];
     }
   }
 })

@@ -25,11 +25,14 @@ angular.module('starter.controllers', [])
   $scope.dog = function() {
     var input = Store.get();
     var mix = algorithms.mixup(input, 'prime12');
-    Store.set(algorithms.changer(mix, 'prime12'));
-    console.log(Store.get());
+    Store.set(animals, algorithms.changer(mix, 'prime12'));
     $scope.block = 'verbs';
     return Store.get();
-  }
+    console.log(Store.get());
+  };
+  $scope.displayPass = function() {
+    $scope.returnPass = Store.get();
+  };
 
 })
 
