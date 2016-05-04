@@ -72,6 +72,8 @@ describe('PasswordCtrl', function() {
     $scope.colors('orange');
     $scope.nouns('fire');
     expect($scope.displayPass()).toBe('K&LV}!tHA?^Y`0`|');
+    $scope.clearAll();
+    expect($scope.progressBar).toBe('');
   });
 
 });
