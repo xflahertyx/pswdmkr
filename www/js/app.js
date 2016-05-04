@@ -40,11 +40,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.pass', {
+    url: '/pass',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
+      'tab-pass': {
+        templateUrl: 'templates/tab-pass.html',
         controller: 'PasswordCtrl'
       }
     }
@@ -80,6 +80,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/pass');
 
 });
