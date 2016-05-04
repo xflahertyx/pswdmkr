@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('PasswordCtrl', function($scope, algorithms, Store) {
+.controller('PasswordCtrl', function($scope, algorithms, Store, $cordovaClipboard) {
 
   var list = {
     dog: 'prime12',
@@ -55,6 +55,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.block = '';
+  $scope.progressBar = '';
 
 
   $scope.animals = function(ani) {
@@ -66,25 +67,29 @@ angular.module('starter.controllers', [])
     var mix = algorithms.mixup(extended, list[ani]);
     Store.set('animal', algorithms.changer(mix, list[ani]));
     $scope.block = 'verbs';
+    $scope.progressBar += ani + ' ';
     console.log('animals out: ' + Store.get('animal'));
   };
   $scope.verbs = function(ver) {
     var input = Store.get('animal');
     console.log('verbs start: ' + input);
     var change1 = algorithms.changer(input, list[ver][0]);
-    Store.set('verb', change1)
+    Store.set('verb', change1);
+    $scope.progressBar += ver + ' ';
     console.log('verbs out: ' + Store.get('verb'))
   };
   $scope.colors = function(col) {
     var input = Store.get('verb');
     var change1 = algorithms.changer(input, list[col][0]);
     Store.set('color', change1);
+    $scope.progressBar += col + ' ';
     console.log('colors out: ' + Store.get('color'))
   };
   $scope.nouns = function(noun) {
     var input = Store.get('color');
     var change1 = algorithms.changer(input, list[noun][0]);
-    Store.set('noun', change1)
+    Store.set('noun', change1);
+    $scope.progressBar += noun;
     console.log('nouns out: ' + Store.get('noun'));
   }
   $scope.displayPass = function() {
@@ -97,17 +102,25 @@ angular.module('starter.controllers', [])
     /*$scope.returnPass = Store.get('');
     return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));*/
   };
-
+  $scope.copyPass = function() {
+    var value = Store.get('noun');
+    $cordovaClipboard
+      .copy(value).then(function() {
+        console.log("Copied text");
+      }, function () {
+        console.error("There was an error copying");
+      });
+  };
+  $scope.clearAll = function() {
+    $scope.test = {};
+    $scope.test.siteInput = '';
+    $scope.test.magicInput = '';
+    $scope.progressBar = '';
+    Store.clear();
+  }
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
 
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
