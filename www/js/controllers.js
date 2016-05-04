@@ -56,7 +56,7 @@ angular.module('starter.controllers', [])
     var extended = algorithms.extend(filtered);
     var mix = algorithms.mixup(extended, list[ani]);
     Store.set('animal', algorithms.changer(mix, list[ani]));
-    $scope.block = 'verbs';
+    $scope.block = 'verbs'; //delete?
     $scope.progressBar += ani + ' ';
     console.log('animals out: ' + Store.get('animal'));
   };
