@@ -40,7 +40,7 @@ describe('PasswordCtrl', function() {
     $scope.clearAll();
     expect($scope.progressBar).toBe('');
   });
-  it('should assign "eats" values to $scope', function() {
+  it('should assign "verbs" values to $scope', function() {
     $scope.animals('cat');
     $scope.verbs('dreams')
     expect($scope.progressBar).toBe('cat dreams ');
