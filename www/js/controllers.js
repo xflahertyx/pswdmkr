@@ -46,18 +46,6 @@ angular.module('starter.controllers', [])
   $scope.test.siteInput = '';
   $scope.test.magicInput = '';
 
-  $scope.passReturn = function() {
-    console.log(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));
-    console.log(algorithms.validate(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput))));
-    console.log(algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput))));
-    console.log(algorithms.validate(algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)))));
-    return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));
-  };
-
-  $scope.block = '';
-  $scope.progressBar = '';
-
-
   $scope.animals = function(ani) {
     var inputs = $scope.test.siteInput +''+ $scope.test.magicInput
     Store.set('inputs', inputs)
@@ -66,31 +54,25 @@ angular.module('starter.controllers', [])
     var extended = algorithms.extend(filtered);
     var mix = algorithms.mixup(extended, list[ani]);
     Store.set('animal', algorithms.changer(mix, list[ani]));
-    $scope.block = 'verbs'; //delete?
-    $scope.progressBar += ani + ' ';
-    console.log('animals out: ' + Store.get('animal'));
+    $scope.animalChoice = ani;
   };
   $scope.verbs = function(ver) {
     var input = Store.get('animal');
-    console.log('verbs start: ' + input);
     var change1 = algorithms.changer(input, list[ver][0]);
     Store.set('verb', change1);
-    $scope.progressBar += ver + ' ';
-    console.log('verbs out: ' + Store.get('verb'))
+    $scope.verbChoice = ver;
   };
   $scope.colors = function(col) {
     var input = Store.get('verb');
     var change1 = algorithms.changer(input, list[col][0]);
     Store.set('color', change1);
-    $scope.progressBar += col + ' ';
-    console.log('colors out: ' + Store.get('color'))
+    $scope.colorChoice = col
   };
   $scope.nouns = function(noun) {
     var input = Store.get('color');
     var change1 = algorithms.changer(input, list[noun][0]);
     Store.set('noun', change1);
-    $scope.progressBar += noun;
-    console.log('nouns out: ' + Store.get('noun'));
+    $scope.nounChoice = noun;
   }
   $scope.displayPass = function() {
     if(algorithms.validate(Store.get('noun'))) {
@@ -99,8 +81,6 @@ angular.module('starter.controllers', [])
       console.log('Bad');
     }
     return $scope.returnPass = Store.get('noun');
-    /*$scope.returnPass = Store.get('');
-    return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));*/
   };
   $scope.copyPass = function() {
     var value = Store.get('noun');
@@ -111,11 +91,19 @@ angular.module('starter.controllers', [])
         console.error("There was an error copying");
       });
   };
+  $scope.backButton = function(arg) {
+    $scope[arg] = '';
+    console.log($scope[arg]);
+  }
   $scope.clearAll = function() {
     $scope.test = {};
     $scope.test.siteInput = '';
     $scope.test.magicInput = '';
     $scope.progressBar = '';
+    $scope.animalChoice = ''
+    $scope.verbChoice = ''
+    $scope.colorChoice = ''
+    $scope.nounChoice = ''
     Store.clear();
   }
 

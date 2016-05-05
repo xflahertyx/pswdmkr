@@ -1,92 +1,109 @@
 <ion-view view-title="Password Maker">
-  <ion-content class="padding" ng-init="block = 'animals'">
-    <div class="list">
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Magic Word:</span>
-        <input type="text" data-ng-model="test.magicInput">
-      </label>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Site/system name:</span>
-        <input type="text" data-ng-model="test.siteInput">
-      </label>
-      <h4 class="item">{{progressBar}}</h4>
+  <ion-content class="padding" ng-init="block = 'init'">
+    <div ng-show="block == 'init'">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Magic Word:</span>
+          <input type="text" data-ng-model="test.magicInput">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Site/system name:</span>
+          <input type="text" data-ng-model="test.siteInput">
+        </label>
+      </div>
+      <div class="list">
+        <button class="button right icon-right ion-chevron-right button-positive" ng-show="test.siteInput && test.magicInput != ''" ng-click="block = 'animals'">Start!</button>
+      </div>
+    </div>
+    <div class="list" ng-show="block != 'init'">
+      <p>Magic Word: <strong>{{test.magicInput}}</strong></p>
+      <p>Site/system name: <strong>{{test.siteInput}}</strong></p>
+      <!-- <h4 class="item">{{progressBar}}</h4> -->
+      <h4 class="item progress-bar">{{animalChoice}} {{verbChoice}} {{colorChoice}} {{nounChoice}}</h4>
     </div>
     <section class="list" ng-show="block == 'animals'" >
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="animals('dog'); block = 'verbs'">Dog</a>
         <a class="button" ng-click="animals('cat'); block = 'verbs'">Cat</a>
         <a class="button" ng-click="animals('rabbit'); block = 'verbs'">Rabbit</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="animals('dragon'); block = 'verbs'">Dragon</a>
         <a class="button" ng-click="animals('llama'); block = 'verbs'">Llama</a>
         <a class="button" ng-click="animals('unicorn'); block = 'verbs'">Unicorn</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="animals('eagle'); block = 'verbs'">Eagle</a>
         <a class="button" ng-click="animals('dolphin'); block = 'verbs'">Dolphin</a>
         <a class="button" ng-click="animals('penguin'); block = 'verbs'">Penguin</a>
       </div>
+      <div class="list">
+        <button class="item button icon-left ion-chevron-left button-positive" ng-click="block = 'init'; backButton('animalChoice')">Back</button>
+      </div>
     </section>
     <section class="list" ng-show="block == 'verbs'">
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="verbs('eats'); block = 'colors'">eats</a>
         <a class="button" ng-click="verbs('breathes'); block = 'colors'">breathes</a>
         <a class="button" ng-click="verbs('drinks'); block = 'colors'">drinks</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="verbs('dreams'); block = 'colors'">dreams</a>
         <a class="button" ng-click="verbs('farts'); block = 'colors'">farts</a>
         <a class="button" ng-click="verbs('smells'); block = 'colors'">smells</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="verbs('snubs'); block = 'colors'">snubs</a>
         <a class="button" ng-click="verbs('snorts'); block = 'colors'">snorts</a>
         <a class="button" ng-click="verbs('summons'); block = 'colors'">summons</a>
       </div>
+      <button class="item button icon-left ion-chevron-left button-positive" ng-click="block = 'animals'; backButton('verbChoice')">Back</button>
     </section>
     <section class="list" ng-show="block == 'colors'">
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button red_button" ng-click="colors('red'); block = 'nouns'">Red</a>
         <a class="button orange_button" ng-click="colors('orange'); block = 'nouns'">Orange</a>
         <a class="button yellow_button" ng-click="colors('yellow'); block = 'nouns'">Yellow</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button green_button" ng-click="colors('green'); block = 'nouns'">Green</a>
         <a class="button blue_button" ng-click="colors('blue'); block = 'nouns'">Blue</a>
         <a class="button purple_button" ng-click="colors('purple'); block = 'nouns'">Purple</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button white_button" ng-click="colors('white'); block = 'nouns'">White</a>
         <a class="button black_button" ng-click="colors('black'); block = 'nouns'">Black</a>
         <a class="button" ng-click="colors('rainbow'); block = 'nouns'"><span class="rainbow">Rainbow</span></a>
       </div>
+      <button class="item button icon-left ion-chevron-left button-positive" ng-click="block = 'verbs'; backButton('colorChoice')">Back</button>
     </section>
     <section ng-show="block == 'nouns'">
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="nouns('cheese'); block = 'pass'; displayPass()">Cheeseburgers</a>
         <a class="button" ng-click="nouns('fire'); block = 'pass'; displayPass()">Fire</a>
         <a class="button" ng-click="nouns('poops'); block = 'pass'; displayPass()">Poops</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="nouns('cars'); block = 'pass'; displayPass()">Cars</a>
         <a class="button" ng-click="nouns('donuts'); block = 'pass'; displayPass()">Donuts</a>
         <a class="button" ng-click="nouns('phones'); block = 'pass'; displayPass()">Phones</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable list">
         <a class="button" ng-click="nouns('sushi'); block = 'pass'; displayPass()">Sushi</a>
         <a class="button" ng-click="nouns('baseballs'); block = 'pass'; displayPass()">Baseballs</a>
         <a class="button" ng-click="nouns('bicycles'); block = 'pass'; displayPass()">Bicycles</a>
       </div>
+      <button class="item button icon-left ion-chevron-left button-positive" ng-click="block = 'colors'; backButton('nounChoice')">Back</button>
     </section>
     <section class="list" ng-show="block == 'pass'">
       <div class="list">
-        <h4>Password:</h4>
-        <h3>{{returnPass}}</h3>
+        <h4 class="password-output">Password:</h4>
+        <h3 class="password-output">{{returnPass}}</h3>
       </div>
-      <div class="list">
-        <button class="button button-positive" on-touch="copyPass()">Copy to Clipboard</button>
-        <button class="button button-positive" ng-click="clearAll(); block = 'animals'">Clear</button>
+      <div class="list button-bar bar-light">
+        <button class="button icon-left ion-chevron-left button-positive" ng-click="block = 'nouns'">Back</button>
+        <button class="button button-positive ion-ios-copy icon-right" on-touch="copyPass()">Copy </button>
+        <button class="button button-positive icon-right ion-android-cancel" ng-click="clearAll(); block = 'init'">Clear</button>
       </div>
     </section>
 
