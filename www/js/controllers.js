@@ -45,8 +45,18 @@ angular.module('starter.controllers', [])
   $scope.test = {};
   $scope.test.siteInput = '';
   $scope.test.magicInput = '';
+
+  $scope.passReturn = function() {
+    console.log(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));
+    console.log(algorithms.validate(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput))));
+    console.log(algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput))));
+    console.log(algorithms.validate(algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)))));
+    return algorithms.changer(algorithms.mixup(algorithms.extend($scope.test.siteInput +''+ $scope.test.magicInput)));
+  };
+
   $scope.block = '';
   $scope.progressBar = '';
+
 
   $scope.animals = function(ani) {
     var inputs = $scope.test.siteInput +''+ $scope.test.magicInput
