@@ -56,7 +56,7 @@ angular.module('starter.controllers', [])
     var extended = algorithms.extend(filtered);
     var mix = algorithms.mixup(extended, list[ani]);
     Store.set('animal', algorithms.changer(mix, list[ani]));
-    $scope.block = 'verbs';
+    $scope.block = 'verbs'; //delete?
     $scope.progressBar += ani + ' ';
     console.log('animals out: ' + Store.get('animal'));
   };
@@ -108,21 +108,10 @@ angular.module('starter.controllers', [])
     $scope.progressBar = '';
     Store.clear();
   }
+
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
+.controller('SettingsCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
   };
