@@ -1,14 +1,12 @@
 describe('the very first test', function() {
   var magicInput = element(by.model('test.magicInput'));
   var siteInput = element(by.model('test.siteInput'));
+  var progressBar = element(by.binding('progressBar'));
 
   var dogBox = element(by.cssContainingText('.button', 'Dog'));
-  // var dogBox = element(by.id('dog'));
   var catBox = element(by.cssContainingText('.button', 'Cat'));
   var rabbitBox = element(by.cssContainingText('.button', 'Rabbit'));
   var dragonBox = element(by.cssContainingText('.button', 'Dragon'));
-  // var llamaBox = element(by.css('ng-click=\"animals(\'llama\')\"'));
-  // var llamaBox = element(by.buttonText('Llama'));
   var llamaBox = element(by.cssContainingText('.button', 'Llama'));
   var unicornBox = element(by.cssContainingText('.button', 'Unicorn'));
   var eagleBox = element(by.cssContainingText('.button', 'Eagle'));
@@ -45,42 +43,71 @@ describe('the very first test', function() {
   var baseballsBox = element(by.cssContainingText('.button', 'Baseballs'));
   var bicyclesBox = element(by.cssContainingText('.button', 'Bicycles'));
 
-  var returnPass = element(by.id('return-pass'));
+  var rPass = element(by.binding('returnPass'));
+  var copyButton = element(by.buttonText('Copy to Clipboard'));
+  var clearButton = element(by.buttonText('Clear'));
 
 
-  beforeEach(function() {
+
+  beforeEach(function(done) {
     browser.get('http://127.0.0.1:8100');
-  });
-
-  it('can enter data', function() {
     magicInput.clear();
     magicInput.sendKeys('abcd');
     siteInput.clear();
     siteInput.sendKeys('efgh.com');
-    expect(magicInput.getAttribute('value')).toEqual('abcd');
-    // expect(magicInput.isPresent()).toEqual(true);
-    expect(siteInput.getAttribute('value')).toEqual('efgh.com');
-  })
-    // console.log(llamaBox.getWebElement());
-    // expect(llamaBox.isPresent()).toEqual(true);
-    // console.log(llamaBox);
+    done();
+  });
 
-    it('can click the buttons', function() {
+  it('can enter data', function(done) {
+    expect(magicInput.getAttribute('value')).toEqual('abcd');
+    expect(siteInput.getAttribute('value')).toEqual('efgh.com');
+    done();
+  })
+
+    it('can click the buttons', function(done) {
       expect(dogBox.isPresent()).toEqual(true);
       llamaBox.click().then(function() {
+        progressBar.getText()
+          .then(function(text) {
+            expect(text).toEqual('llama');
+          })
           snubsBox.click().then(function() {
+            progressBar.getText()
+            .then(function(text) {
+              expect(text).toEqual('llama snubs');
+            })
             orangeBox.click().then(function() {
+              progressBar.getText()
+              .then(function(text) {
+                expect(text).toEqual('llama snubs orange');
+              })
               donutsBox.click().then(function() {
-        // console.log(returnPass);
-        // console.log(returnPass.getText());
-        // expect(returnPass.length).toEqual(16);
+                progressBar.getText()
+                .then(function(text) {
+                  expect(text).toEqual('llama snubs orange donuts');
+                })
+                expect(rPass.isPresent()).toEqual(true)
+                rPass.getText()
+                .then(function(text) {
+                  expect(text.length).toEqual(16);
+                  clearButton.click()
+                  .then(function() {
+                    magicInput.getAttribute('value').then(function(value) {
+                      expect(value.length).toEqual(0);
+                    });
+                    siteInput.getAttribute('value').then(function(value) {
+                      expect(value.length).toEqual(0);
+                    });
+                    rPass.getText()
+                    .then(function(text) {
+                      expect(text.length).toEqual(0);
+                      done();
+                    });
+                  })
+                });
               })
             })
           })
       })
-
     })
-
-
-
 })
