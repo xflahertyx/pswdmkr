@@ -2,6 +2,10 @@ describe('the very first test', function() {
   var magicInput = element(by.model('test.magicInput'));
   var siteInput = element(by.model('test.siteInput'));
   var progressBar = element(by.binding('progressBar'));
+  var animalChoice = element(by.binding('animalChoice'));
+  var verbChoice = element(by.binding('verbChoice'));
+  var colorChoice = element(by.binding('colorChoice'));
+  var nounChoice = element(by.binding('nounChoice'));
 
   var dogBox = element(by.cssContainingText('.button', 'Dog'));
   var catBox = element(by.cssContainingText('.button', 'Cat'));
@@ -43,6 +47,7 @@ describe('the very first test', function() {
   var baseballsBox = element(by.cssContainingText('.button', 'Baseballs'));
   var bicyclesBox = element(by.cssContainingText('.button', 'Bicycles'));
 
+  var startButton = element(by.buttonText('Start!'));
   var rPass = element(by.binding('returnPass'));
   var copyButton = element(by.buttonText('Copy to Clipboard'));
   var clearButton = element(by.buttonText('Clear'));
@@ -65,31 +70,32 @@ describe('the very first test', function() {
   })
 
     it('can click the buttons', function(done) {
-      expect(dogBox.isPresent()).toEqual(true);
-      llamaBox.click().then(function() {
-        progressBar.getText()
-          .then(function(text) {
-            expect(text).toEqual('llama');
+      startButton.click().then(function() {
+        expect(dogBox.isPresent()).toEqual(true);
+        llamaBox.click().then(function() {
+          animalChoice.getText()
+          .then(function(aText) {
+            expect(aText).toEqual('llama');
           })
           snubsBox.click().then(function() {
-            progressBar.getText()
-            .then(function(text) {
-              expect(text).toEqual('llama snubs');
+            verbChoice.getText()
+            .then(function(vText) {
+              expect(vText).toEqual('llama snubs');
             })
             orangeBox.click().then(function() {
-              progressBar.getText()
-              .then(function(text) {
-                expect(text).toEqual('llama snubs orange');
+              colorChoice.getText()
+              .then(function(cText) {
+                expect(cText).toEqual('llama snubs orange');
               })
               donutsBox.click().then(function() {
-                progressBar.getText()
-                .then(function(text) {
-                  expect(text).toEqual('llama snubs orange donuts');
+                nounChoice.getText()
+                .then(function(nText) {
+                  expect(nText).toEqual('llama snubs orange donuts');
                 })
                 expect(rPass.isPresent()).toEqual(true)
                 rPass.getText()
-                .then(function(text) {
-                  expect(text.length).toEqual(16);
+                .then(function(rText) {
+                  expect(rText.length).toEqual(16);
                   clearButton.click()
                   .then(function() {
                     magicInput.getAttribute('value').then(function(value) {
@@ -99,8 +105,8 @@ describe('the very first test', function() {
                       expect(value.length).toEqual(0);
                     });
                     rPass.getText()
-                    .then(function(text) {
-                      expect(text.length).toEqual(0);
+                    .then(function(rText) {
+                      expect(rText.length).toEqual(0);
                       done();
                     });
                   })
@@ -108,6 +114,7 @@ describe('the very first test', function() {
               })
             })
           })
+        })
       })
     })
 })
