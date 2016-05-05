@@ -1,6 +1,6 @@
 <ion-view view-title="Password Maker">
-  <ion-content class="padding" ng-init="block = 'animals'">
-    <div class="list">
+  <ion-content class="padding" ng-init="block = 'init'">
+    <div class="list" ng-show="block == 'init'">
       <label class="item item-input item-stacked-label">
         <span class="input-label">Magic Word:</span>
         <input type="text" data-ng-model="test.magicInput">
@@ -9,7 +9,13 @@
         <span class="input-label">Site/system name:</span>
         <input type="text" data-ng-model="test.siteInput">
       </label>
-      <h4 class="item">{{progressBar}}</h4>
+      <button class="button" ng-click="block = 'animals'">Done</button>
+    </div>
+    <div ng-show="block != 'init'">
+      <p>{{test.magicInput}}</p>
+      <p>{{test.siteInput}}</p>
+      <!-- <h4 class="item">{{progressBar}}</h4> -->
+      <h4 class="item">{{animalChoice}} {{verbChoice}} {{colorChoice}} {{nounChoice}}</h4>
     </div>
     <section class="list" ng-show="block == 'animals'" >
       <div class="button-bar bar-stable item">
@@ -27,6 +33,7 @@
         <a class="button" ng-click="animals('dolphin'); block = 'verbs'">Dolphin</a>
         <a class="button" ng-click="animals('penguin'); block = 'verbs'">Penguin</a>
       </div>
+      <button class="button" ng-click="block = 'init'; backButton('animalChoice')">Back</button>
     </section>
     <section class="list" ng-show="block == 'verbs'">
       <div class="button-bar bar-stable item">
@@ -44,6 +51,7 @@
         <a class="button" ng-click="verbs('snorts'); block = 'colors'">snorts</a>
         <a class="button" ng-click="verbs('summons'); block = 'colors'">summons</a>
       </div>
+      <button class="button" ng-click="block = 'animals'; backButton('verbChoice')">Back</button>
     </section>
     <section class="list" ng-show="block == 'colors'">
       <div class="button-bar bar-stable item">
@@ -61,6 +69,7 @@
         <a class="button black_button" ng-click="colors('black'); block = 'nouns'">Black</a>
         <a class="button" ng-click="colors('rainbow'); block = 'nouns'"><span class="rainbow">Rainbow</span></a>
       </div>
+      <button class="button" ng-click="block = 'verbs'; backButton('colorChoice')">Back</button>
     </section>
     <section ng-show="block == 'nouns'">
       <div class="button-bar bar-stable item">
@@ -78,6 +87,7 @@
         <a class="button" ng-click="nouns('baseballs'); block = 'pass'; displayPass()">Baseballs</a>
         <a class="button" ng-click="nouns('bicycles'); block = 'pass'; displayPass()">Bicycles</a>
       </div>
+      <button class="button" ng-click="block = 'colors'; backButton('nounChoice')">Back</button>
     </section>
     <section class="list" ng-show="block == 'pass'">
       <div class="list">
@@ -86,7 +96,8 @@
       </div>
       <div class="list">
         <button class="button button-positive" on-touch="copyPass()">Copy to Clipboard</button>
-        <button class="button button-positive" ng-click="clearAll(); block = 'animals'">Clear</button>
+        <button class="button button-positive" ng-click="clearAll(); block = 'init'">Clear</button>
+        <button class="button" ng-click="block = 'nouns'">Back</button>
       </div>
     </section>
 
