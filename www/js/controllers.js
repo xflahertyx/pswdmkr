@@ -45,7 +45,6 @@ angular.module('starter.controllers', [])
   $scope.test = {};
   $scope.test.siteInput = '';
   $scope.test.magicInput = '';
-  $scope.block = '';
   $scope.progressBar = '';
 
   $scope.animals = function(ani) {
