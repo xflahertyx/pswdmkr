@@ -69,4 +69,7 @@
     transform: scale(1);
   }
 }
+.progress-bar, .password-output {
+  text-align: center;
+}
 

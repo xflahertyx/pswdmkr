@@ -105,6 +105,10 @@ angular.module('starter.controllers', [])
     $scope.test.siteInput = '';
     $scope.test.magicInput = '';
     $scope.progressBar = '';
+    $scope.animalChoice = ''
+    $scope.verbChoice = ''
+    $scope.colorChoice = ''
+    $scope.nounChoice = ''
     Store.clear();
   }
 
