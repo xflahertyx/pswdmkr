@@ -35,7 +35,6 @@ describe('PasswordCtrl', function() {
 
   it('should assign "dog" values to $scope', function() {
     $scope.animals('dog');
-    expect($scope.block).toBe('verbs');
     expect($scope.progressBar).toBe('dog ');
     $scope.clearAll();
     expect($scope.progressBar).toBe('');

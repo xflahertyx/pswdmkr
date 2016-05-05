@@ -12,68 +12,68 @@
       <h4 class="item">{{progressBar}}</h4>
     </div>
     <section class="list" ng-show="block == 'animals'" >
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="animals('dog'); block = 'verbs'">Dog</a>
         <a class="button" ng-click="animals('cat'); block = 'verbs'">Cat</a>
         <a class="button" ng-click="animals('rabbit'); block = 'verbs'">Rabbit</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="animals('dragon'); block = 'verbs'">Dragon</a>
         <a class="button" ng-click="animals('llama'); block = 'verbs'">Llama</a>
         <a class="button" ng-click="animals('unicorn'); block = 'verbs'">Unicorn</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="animals('eagle'); block = 'verbs'">Eagle</a>
         <a class="button" ng-click="animals('dolphin'); block = 'verbs'">Dolphin</a>
         <a class="button" ng-click="animals('penguin'); block = 'verbs'">Penguin</a>
       </div>
     </section>
     <section class="list" ng-show="block == 'verbs'">
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="verbs('eats'); block = 'colors'">eats</a>
         <a class="button" ng-click="verbs('breathes'); block = 'colors'">breathes</a>
         <a class="button" ng-click="verbs('drinks'); block = 'colors'">drinks</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="verbs('dreams'); block = 'colors'">dreams</a>
         <a class="button" ng-click="verbs('farts'); block = 'colors'">farts</a>
         <a class="button" ng-click="verbs('smells'); block = 'colors'">smells</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="verbs('snubs'); block = 'colors'">snubs</a>
         <a class="button" ng-click="verbs('snorts'); block = 'colors'">snorts</a>
         <a class="button" ng-click="verbs('summons'); block = 'colors'">summons</a>
       </div>
     </section>
     <section class="list" ng-show="block == 'colors'">
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button red_button" ng-click="colors('red'); block = 'nouns'">Red</a>
         <a class="button orange_button" ng-click="colors('orange'); block = 'nouns'">Orange</a>
         <a class="button yellow_button" ng-click="colors('yellow'); block = 'nouns'">Yellow</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button green_button" ng-click="colors('green'); block = 'nouns'">Green</a>
         <a class="button blue_button" ng-click="colors('blue'); block = 'nouns'">Blue</a>
         <a class="button purple_button" ng-click="colors('purple'); block = 'nouns'">Purple</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button white_button" ng-click="colors('white'); block = 'nouns'">White</a>
         <a class="button black_button" ng-click="colors('black'); block = 'nouns'">Black</a>
         <a class="button" ng-click="colors('rainbow'); block = 'nouns'"><span class="rainbow">Rainbow</span></a>
       </div>
     </section>
     <section ng-show="block == 'nouns'">
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="nouns('cheese'); block = 'pass'; displayPass()">Cheeseburgers</a>
         <a class="button" ng-click="nouns('fire'); block = 'pass'; displayPass()">Fire</a>
         <a class="button" ng-click="nouns('poops'); block = 'pass'; displayPass()">Poops</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="nouns('cars'); block = 'pass'; displayPass()">Cars</a>
         <a class="button" ng-click="nouns('donuts'); block = 'pass'; displayPass()">Donuts</a>
         <a class="button" ng-click="nouns('phones'); block = 'pass'; displayPass()">Phones</a>
       </div>
-      <div class="button-bar item">
+      <div class="button-bar bar-stable item">
         <a class="button" ng-click="nouns('sushi'); block = 'pass'; displayPass()">Sushi</a>
         <a class="button" ng-click="nouns('baseballs'); block = 'pass'; displayPass()">Baseballs</a>
         <a class="button" ng-click="nouns('bicycles'); block = 'pass'; displayPass()">Bicycles</a>
